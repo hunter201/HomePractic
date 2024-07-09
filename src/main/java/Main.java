@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
-        public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         List<Actor> actorList = new ArrayList<>();
         List<String[]> namesList;
         //просим пользователя ввести  путь к исходному файлу
@@ -26,6 +26,7 @@ public class Main {
         //фильтруем коллекцию по условию (name > 4 && name < 7)
         filterActorClass(Paths.get(".\\src\\main\\resources\\results.txt"), actorList);
     }
+
     private static void filterActorClass(Path path, List<Actor> actorList) throws IOException {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         Stream<Actor> streamActor = actorList.stream();
@@ -34,11 +35,11 @@ public class Main {
         List<String> list = streamActor.map(Actor::getName)
                 .filter(name -> (name.length() > 4 && name.length() < 7))
                 .toList();
-        bw.write("\nПо итогам фильтрации на " + dtf.format(LocalDateTime.now()) + " нашлось "
-                + list.size() + " элементов." + "(" + list + ")");
+        System.out.println("Hello world!!!");
         bw.close();
         fos.close();
     }
+
     private static List<String[]> readDataFromFile(Path path) throws IOException {
         List<String[]> namesList = new ArrayList<>();
         FileInputStream fis = new FileInputStream(String.valueOf(path));

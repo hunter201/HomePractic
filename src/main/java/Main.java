@@ -34,7 +34,7 @@ public class Main {
         List<String> list = streamActor.map(Actor::getName)
                 .filter(name -> (name.length() > 4 && name.length() < 7))
                 .toList();
-        bw.write("\nПо итогам фильтрации на " + dtf.format(LocalDateTime.now()) + " найдено "
+        bw.write("\nПо итогам фильтрации на " + dtf.format(LocalDateTime.now()) + " нашлось "
                 + list.size() + " элементов." + "(" + list + ")");
         bw.close();
         fos.close();

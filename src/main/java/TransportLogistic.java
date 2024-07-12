@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public class TransportLogistic {
+abstract public class TransportLogistic {
+    abstract public Transport createTransport();
 }

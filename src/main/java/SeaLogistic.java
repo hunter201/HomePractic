@@ -1,2 +1,7 @@
-package PACKAGE_NAME;public class SeaLogistic {
+public class SeaLogistic extends TransportLogistic {
+
+    @Override
+    public Transport createTransport() {
+        return new Ship();
+    }
 }

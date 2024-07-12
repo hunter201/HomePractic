@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public interface Transport {
+public interface Transport {
+
+    public void deliver();
 }

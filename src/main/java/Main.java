@@ -35,12 +35,16 @@ public class Main {
         List<String> list = streamActor.map(Actor::getName)
                 .filter(name -> (name.length() > 4 && name.length() < 7))
                 .toList();
-        System.out.println("Hello world!!!");
+        System.out.println(list);
+        bw.write(list.toString());
         bw.close();
         fos.close();
     }
 
     private static List<String[]> readDataFromFile(Path path) throws IOException {
+        String[] str;
+        String name;
+        String surname;
         List<String[]> namesList = new ArrayList<>();
         FileInputStream fis = new FileInputStream(String.valueOf(path));
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fis));
@@ -49,7 +53,12 @@ public class Main {
             if (line.isEmpty()) {
                 break;
             }
+          str = line.trim().split(" ");
+            name = str[0].substring(5, str[0].length());
+            surname = str[1].substring(8, str[1].length());
+           
             namesList.add(line.trim().split(" "));
+
         }
         bufferedReader.close();
         fis.close();

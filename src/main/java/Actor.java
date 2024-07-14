@@ -1,7 +1,7 @@
 import java.io.Serial;
 import java.io.Serializable;
 
-public class Actor implements Serializable {
+public class Actor implements Serializable, Cloneable {
 
     @Serial
     private static final long serialVersionUID = 100L;
@@ -24,4 +24,14 @@ public class Actor implements Serializable {
     }
 
 
+    @Override
+    public Actor clone() {
+        try {
+            Actor clone = (Actor) super.clone();
+          
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }

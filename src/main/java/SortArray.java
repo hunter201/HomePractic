@@ -78,4 +78,26 @@ public class SortArray {
         System.out.println(list);
         return list;
     }
+
+    public List<Double> quickSort() {
+
+        long time = System.currentTimeMillis();
+
+        List<Double> new_list = new ArrayList<>(list.size());
+
+        int delimeter = list.size() / 2;
+
+        double delimeterValue = list.get(delimeter);
+
+        System.out.println("Delimeter is " + delimeter + " Value is: " + delimeterValue);
+
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i) > delimeterValue){
+                Collections.swap(list, i, delimeter);
+            }
+        }
+
+        System.out.println(new_list);
+        return null;
+    }
 }

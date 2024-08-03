@@ -9,19 +9,21 @@ public class Main {
         Semaphore sem = new Semaphore(1);
         CommonResource res = new CommonResource();
 
-        for (int i = 0; i < 10; i++) {
-            row.add(Math.round(new Random().nextDouble(100) * 100) / 100.0);
-
-        }
+//        for (int i = 0; i < 10; i++) {
+//            row.add(Math.round(new Random().nextDouble(100) * 100) / 100.0);
+//
+//        }
 //
 //        SortArray sort = new SortArray(row);
 //
 //        System.out.println(row);
-        new Thread(new BubbleSortArray(row, res, sem)).start();
+//        new Thread(new BubbleSortArray(row, res, sem)).start();
+//
+//        new Thread(new InsertionSortArray(row, res, sem)).start();
 
-        new Thread(new InsertionSortArray(row, res, sem)).start();
+        Singleton singleton = Singleton.getInstance("Hello World");
 
-
+        singleton.printValue();
 
 
     }
